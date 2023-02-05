@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_sample_retrofit/page/post_list/ui/post_item_view.dart';
 import 'package:flutter_sample_retrofit/page/post_list/view_model/post_list_view_model.dart';
+import 'package:flutter_sample_retrofit/router/app_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class PostListPage extends ConsumerWidget {
@@ -36,7 +38,9 @@ class PostListPage extends ConsumerWidget {
         itemCount: posts.length,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          context.router.push(const PostCreateRoute());
+        },
         child: const Icon(Icons.add),
       ),
     );

@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart' hide Headers;
 import 'package:flutter_sample_retrofit/constants/url_constants.dart';
-import 'package:flutter_sample_retrofit/model/post/post_list_response.dart';
+import 'package:flutter_sample_retrofit/model/post/response/post_response.dart';
 import 'package:retrofit/http.dart';
 
 part 'api_client.g.dart';

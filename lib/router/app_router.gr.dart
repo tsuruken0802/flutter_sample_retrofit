@@ -10,38 +10,44 @@
 //
 // ignore_for_file: type=lint
 
-// ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i2;
-import 'package:flutter/material.dart' as _i3;
+part of 'app_router.dart';
 
-import '../page/post_list/ui/post_list_page.dart' as _i1;
-
-class AppRouter extends _i2.RootStackRouter {
-  AppRouter([_i3.GlobalKey<_i3.NavigatorState>? navigatorKey])
-      : super(navigatorKey);
+class _$AppRouter extends RootStackRouter {
+  _$AppRouter([GlobalKey<NavigatorState>? navigatorKey]) : super(navigatorKey);
 
   @override
-  final Map<String, _i2.PageFactory> pagesMap = {
+  final Map<String, PageFactory> pagesMap = {
     PostListRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i1.PostListPage(),
+        child: const PostListPage(),
       );
-    }
+    },
+    PostCreateRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const PostCreatePage(),
+        fullscreenDialog: true,
+      );
+    },
   };
 
   @override
-  List<_i2.RouteConfig> get routes => [
-        _i2.RouteConfig(
+  List<RouteConfig> get routes => [
+        RouteConfig(
           PostListRoute.name,
           path: '/',
-        )
+        ),
+        RouteConfig(
+          PostCreateRoute.name,
+          path: '/post-create-page',
+        ),
       ];
 }
 
 /// generated route for
-/// [_i1.PostListPage]
-class PostListRoute extends _i2.PageRouteInfo<void> {
+/// [PostListPage]
+class PostListRoute extends PageRouteInfo<void> {
   const PostListRoute()
       : super(
           PostListRoute.name,
@@ -49,4 +55,16 @@ class PostListRoute extends _i2.PageRouteInfo<void> {
         );
 
   static const String name = 'PostListRoute';
+}
+
+/// generated route for
+/// [PostCreatePage]
+class PostCreateRoute extends PageRouteInfo<void> {
+  const PostCreateRoute()
+      : super(
+          PostCreateRoute.name,
+          path: '/post-create-page',
+        );
+
+  static const String name = 'PostCreateRoute';
 }
