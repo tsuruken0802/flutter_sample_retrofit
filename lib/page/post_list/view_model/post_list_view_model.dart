@@ -2,17 +2,16 @@ import 'package:flutter_sample_retrofit/repository/post/post_repository.dart';
 import 'package:flutter_sample_retrofit/page/post_list/view_model/post_list_state.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final postListProvider = StateNotifierProvider.family<HelperNoticeListViewModel,
+final postListProvider = StateNotifierProvider.family<PostListViewModel,
     AsyncValue<PostListState>, String>(
-  (ref, keyword) => HelperNoticeListViewModel(keyword: keyword),
+  (ref, keyword) => PostListViewModel(keyword: keyword),
 );
 
-class HelperNoticeListViewModel
-    extends StateNotifier<AsyncValue<PostListState>> {
+class PostListViewModel extends StateNotifier<AsyncValue<PostListState>> {
   final String keyword;
   final PostRepository repository;
 
-  HelperNoticeListViewModel({
+  PostListViewModel({
     required this.keyword,
     this.repository = const PostRepositoryImpl(),
   }) : super(const AsyncLoading()) {

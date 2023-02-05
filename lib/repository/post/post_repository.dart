@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_sample_retrofit/api_client/api_client.dart';
-import 'package:flutter_sample_retrofit/model/post/post_list_response.dart';
+import 'package:flutter_sample_retrofit/model/post/response/post_response.dart';
 import 'package:flutter_sample_retrofit/model/result.dart';
 
 abstract class PostRepository {

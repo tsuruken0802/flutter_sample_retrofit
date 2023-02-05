@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-part 'post_list_response.freezed.dart';
-part 'post_list_response.g.dart';
+part 'post_response.freezed.dart';
+part 'post_response.g.dart';
 
 @freezed
 class PostListResponse with _$PostListResponse {
