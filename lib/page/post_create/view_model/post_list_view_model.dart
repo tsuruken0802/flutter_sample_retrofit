@@ -1,4 +1,4 @@
-import 'package:flutter_sample_retrofit/repository/post/post_repository.dart';
+import 'package:flutter_sample_retrofit/page/post_list/repository/post_repository.dart';
 import 'package:flutter_sample_retrofit/page/post_list/view_model/post_list_state.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
