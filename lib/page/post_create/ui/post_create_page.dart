@@ -11,6 +11,7 @@ class PostCreatePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(postCreateProvider);
+    final viewModel = ref.watch(postCreateProvider.notifier);
 
     if (state.isLoading) {
       EasyLoading.show();
@@ -20,9 +21,26 @@ class PostCreatePage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Post List"),
+        title: const Text("Post Create"),
       ),
-      body: Container(),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            TextField(
+              autofocus: true,
+              onSubmitted: (value) => viewModel.updateTitle(value),
+            ),
+            const Padding(padding: EdgeInsets.only(top: 16.0)),
+            ElevatedButton(
+              onPressed: () {
+                viewModel.createPost();
+              },
+              child: const Text("投稿"),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

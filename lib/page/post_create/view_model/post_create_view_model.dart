@@ -20,4 +20,19 @@ class PostCreateViewModel extends StateNotifier<AsyncValue<PostCreateState>> {
             ),
           ),
         );
+
+  updateTitle(String title) {
+    print("更新するよ");
+    state = AsyncData(
+      PostCreateState(
+        dto: PostCreateDto(title: title),
+      ),
+    );
+  }
+
+  createPost() {
+    final dto = state.asData?.value.dto;
+    if (dto == null) return dto;
+    print(dto);
+  }
 }
