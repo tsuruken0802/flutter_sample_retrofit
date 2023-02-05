@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_sample_retrofit/router/app_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 void main() {
+  EasyLoading.instance.userInteractions = false;
   runApp(const ProviderScope(child: App()));
 }
 
@@ -17,6 +19,7 @@ class App extends HookConsumerWidget {
     return MaterialApp.router(
       routerDelegate: appRouter.delegate(),
       routeInformationParser: appRouter.defaultRouteParser(),
+      builder: EasyLoading.init(),
     );
   }
 }
